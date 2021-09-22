@@ -11,10 +11,10 @@ function App() {
     <Router>
     <div className="App">
       <Nav />
-      <Route path='/productList'component={ItemList} />
+      <Route exact path='/'component={ItemList} />
       <Route exact path='/cart'component={Cart} />
-      <Route path='/createProduct' component={CreateItem} />
-      <Route path='/productPage' component={ProductPage} />
+      <Route exact path='/createProduct' component={CreateItem} />
+      <Route exact path='/productPage' component={ProductPage} />
     </div>
     </Router>
   );

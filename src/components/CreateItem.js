@@ -5,22 +5,23 @@ import { connect } from "react-redux";
 import { createProduct } from "../Actions";
 import ImageUploading from "react-images-uploading";
 import { v4 as uuidv4 } from 'uuid';
+import moment from "moment";
 
 function CreateItem(props) {
-  const [itemData, setItemData] = useState({
-    id: '',
-    name: "",
-    description: "",
-    image: "",
-    price: 0,
-  });
+
+    const [itemData, setItemData] = useState({
+      id: '',
+      name: "",
+      description: "",
+      image: "",
+      price: 0,
+      quantity: 1,
+      time: ""
+    });
+  
   const [image, setImage] = useState();
 
-  const handleInput = () => {
-    //   e.preventDefault();
-    console.log('handleInput',itemData)
-    props.createProduct( {...itemData, id: uuidv4()}, "CREATE" );
-  };
+  const handleInput = () => props.createProduct( {...itemData, id: uuidv4(), time: moment().format('	YYYY-MM-DD HH:mm') }, "CREATE" );
 
   const onChange = (image) => {
     // setImage(image);
@@ -40,7 +41,7 @@ function CreateItem(props) {
               onChange={(e) =>
                 setItemData({ ...itemData, name: e.target.value })
               }
-            />
+            required/>
           </Row>
 
           <Row className="mt-2 justify-content-md-left" xs lg="3">
@@ -48,6 +49,7 @@ function CreateItem(props) {
             <textarea
               value={itemData.description}
               type="text"
+              min="10"
               onChange={(e) =>
                 setItemData({ ...itemData, description: e.target.value })
               }
@@ -65,7 +67,7 @@ function CreateItem(props) {
               dataURLKey="url"
             >
               {({ onImageUpload }) => (
-                <Button onClick={onImageUpload}>Choose Image</Button>
+                <Button variant='outline-primary' onClick={onImageUpload}>Choose Image</Button>
               )}
             </ImageUploading>
           </Row>
@@ -82,10 +84,9 @@ function CreateItem(props) {
             />
           </Row>
 
-          <Link to="/productList">
-            {" "}
+          <Link to="/">
             <Row className="mt-4 justify-content-md-center" mt-3 xs lg="5">
-              <Button onClick={handleInput}>Add New Item </Button>
+              <Button disabled={ !(itemData.name) || itemData.description.length < 10 } onClick={handleInput}>Add New Item </Button>
             </Row>
           </Link>
         </form>
@@ -100,8 +101,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchtoProps = {
-  createProduct,
-};
+const mapDispatchtoProps = {createProduct};
 
 export default connect(mapStateToProps, mapDispatchtoProps)(CreateItem);
