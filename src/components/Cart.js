@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, Button } from "react-bootstrap";
 import { connect } from "react-redux";
-import { removeFromCart } from "../Actions";
+import { createProduct, removeFromCart, addToCart, decrementQty } from "../Actions";
 
 const Cart = (props) => {
   const data = props.cartData;
@@ -27,7 +27,11 @@ const Cart = (props) => {
                 <Card.Text>
                   <h4> Price : ₹{item.price}</h4>
                 </Card.Text>
-                <Card.Text> Qty : {item.quantity} </Card.Text>
+                <Card.Text>
+                  <Button variant='outline-secondary' onClick={()=>props.addToCart(item)}>+</Button>&nbsp;
+                   Qty : {item.quantity} 
+                  &nbsp;<Button variant='outline-secondary' onClick={()=>props.decrementQty(item)}>-</Button>
+                  </Card.Text>
                 <Button
                   className="m-2"
                   variant="primary"
@@ -74,4 +78,11 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { removeFromCart })(Cart);
+const mapDispatchtoProps = {
+  addToCart,
+  removeFromCart,
+  createProduct,
+  decrementQty
+}
+
+export default connect(mapStateToProps, mapDispatchtoProps)(Cart);

@@ -18,9 +18,23 @@ export const addCart = (state = [], action) => {
         return [...state, action.payload];
       }
 
+    case "DECREMENT_QTY" : 
+    const check = state.find(item => item.id === action.payload.id);
+      if (check) {
+        const newData = state.map((item) => {
+          if (item.id === action.payload.id) {
+            return {...item, quantity: item.quantity - 1};
+          } else return item;
+          
+        });
+        return newData;
+      } else {
+        return [...state, action.payload];
+      }
+
     case "REMOVE_ITEM":
       console.log("remove", action.payload);
-      const newData = state.filter((item) => item.id !== action.payload);
+      const newData = state.filter(item => item.id !== action.payload);
       console.log(newData);
       return newData;
 

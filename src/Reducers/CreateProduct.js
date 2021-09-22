@@ -17,6 +17,14 @@ export const createProduct = (state=[], action) => {
       console.log(updateData)
       return updateData;
 
+      case "INCREMENT":
+        const incIndex = state.findIndex(item =>item.id === action.payload)
+        const incData = [...state]
+        console.log(incData[incIndex]);
+        incData[incIndex].quantity += 1;
+        return incData;
+
+
     default:
       return state;
   }

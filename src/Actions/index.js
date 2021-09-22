@@ -15,11 +15,20 @@ export const addToCart = (data) => {
 }
 
 export const removeFromCart = (data) => {
-  const item=data
   console.log("remove",data)
   return {
     type: "REMOVE_ITEM",
     payload: data
   }
 }
+
+export const decrementQty = (data) => {
+  console.log("remove",data)
+  return {
+    type: "DECREMENT_QTY",
+    payload: data
+  }
+}
+
+
 

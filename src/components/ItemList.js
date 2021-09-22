@@ -95,4 +95,10 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, {createProduct,addToCart})(ItemList);
+const mapDispatchtoProps = {
+  createProduct,
+  addToCart,
+  
+}
+
+export default connect(mapStateToProps, mapDispatchtoProps)(ItemList);
