@@ -1,4 +1,7 @@
-# VIDYARD LINK 22-09-21
+# VIDYARD LINK 22-09-21 (COUNT FEATURE ON CART)
+https://share.vidyard.com/watch/KYkMS7q3rbVFwRW29NZz7A?
+
+# VIDYARD LINK 22-09-21 
 https://share.vidyard.com/watch/6JGfoCetaCrX5Zc5XANoLB?
 
 # Getting Started with Create React App
