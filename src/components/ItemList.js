@@ -68,15 +68,15 @@ const ItemList = (props) => {
               <Modal.Header>Item Name</Modal.Header>
               <FormControl type='text' value={update.name} onChange={(e)=>{setUpdate({...update, name:e.target.value})}} />
               <Modal.Header>Description</Modal.Header>
-              <FormControl type='text' value={update.description} onChange={(e)=>{setUpdate({...update, dept:e.target.value})}} />
+              <FormControl type='text' value={update.description} onChange={(e)=>{setUpdate({...update, description:e.target.value})}} />
               <Modal.Header>Description</Modal.Header>
-              <ImageUploading single value={update.image} onChange={onChange} dataURLKey="url">
+              <ImageUploading single onChange={onChange} dataURLKey="url">
               {({ onImageUpload }) => (
                 <Button variant='outline-primary' onClick={onImageUpload}>Choose Image</Button>
               )}
             </ImageUploading>
               <Modal.Header>Price</Modal.Header>
-              <FormControl type='text' value={update.price} onChange={(e)=>{setUpdate({...update, email:e.target.value})}}/>
+              <FormControl type='text' value={update.price} onChange={(e)=>{setUpdate({...update, price:e.target.value})}}/>
           </Modal.Body>
           <Modal.Footer>
               <Button onClick={()=>{props.createProduct(update, "UPDATE");setShow(false)}}>Save changes</Button>
