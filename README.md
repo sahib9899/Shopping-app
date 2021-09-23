@@ -1,3 +1,6 @@
+# VIDYARD LINK 23-09-21 (CART COUNT ADDED)
+https://share.vidyard.com/watch/GTaPPv64wSFY3SQ5bBTwCF?
+
 # VIDYARD LINK 22-09-21 (COUNT FEATURE ON CART)
 https://share.vidyard.com/watch/KYkMS7q3rbVFwRW29NZz7A?
 
